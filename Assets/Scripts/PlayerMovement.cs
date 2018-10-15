@@ -20,5 +20,10 @@ public class PlayerMovement : MonoBehaviour {
         {
             transform.position += new Vector3(speed * Time.deltaTime, 0, 0);
         }
+
+        if (transform.position.y < -10.0f)
+        {
+            Destroy(gameObject);
+        }
     }
 }
