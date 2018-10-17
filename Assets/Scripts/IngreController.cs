@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class IngreController : MonoBehaviour {
 
-    public Rigidbody rb;
+    private Rigidbody rb;
+
+    public List<Material> ingredients = new List<Material>();
 
     private void Start()
     {
@@ -20,10 +22,13 @@ public class IngreController : MonoBehaviour {
             rb.isKinematic = true;
 
             // Moves it to the top.
-            gameObject.transform.position = new Vector3(Random.Range(-8.0f, 8.0f), 10, 0.9f);
+            gameObject.transform.position = new Vector3(Random.Range(-8.0f, 8.0f), Random.Range(10, 20), 0.9f);
 
             // Sets rotation to 0.
             gameObject.transform.rotation = new Quaternion();
+
+            
+
 
             // allows it to move again.
             rb.isKinematic = false;
