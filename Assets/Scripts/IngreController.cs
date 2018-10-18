@@ -5,12 +5,14 @@ using UnityEngine;
 public class IngreController : MonoBehaviour {
 
     private Rigidbody rb;
+    private SpriteRenderer sp;
 
-    public List<Material> ingredients = new List<Material>();
+    public Sprite[] ingredients = new Sprite[] { };
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        sp = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
@@ -22,13 +24,19 @@ public class IngreController : MonoBehaviour {
             rb.isKinematic = true;
 
             // Moves it to the top.
-            gameObject.transform.position = new Vector3(Random.Range(-8.0f, 8.0f), Random.Range(10, 20), 0.9f);
+            gameObject.transform.position = new Vector3(Random.Range(-8.0f, 8.0f), Random.Range(10, 20), 0);
 
             // Sets rotation to 0.
             gameObject.transform.rotation = new Quaternion();
 
-            
+            // Selects a random sprite from the ingredients list using the index.
+            var spriteIndex = Random.Range(0, ingredients.Length);
 
+            // Assigns selected sprite to be rendered.
+            sp.sprite = ingredients[spriteIndex];
+
+            // Randomly changes the mass to be between 0.1 and 2.
+            rb.mass = Random.Range(0.1f, 2.0f);
 
             // allows it to move again.
             rb.isKinematic = false;
