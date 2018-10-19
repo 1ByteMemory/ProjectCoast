@@ -5,7 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ingrediant
-  - KillFloor
+  - Lime
+  - Mint
+  - Orange
+  - Ice
+  - Grapefuit
   layers:
   - Default
   - TransparentFX
