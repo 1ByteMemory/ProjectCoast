@@ -7,7 +7,7 @@ public class IngreController : MonoBehaviour {
     private Rigidbody rb;
     private SpriteRenderer sp;
 
-    public Sprite[] ingredients = new Sprite[] { };
+    public Animation[] ingredients = new Animation[] { };
 
     private void Start()
     {
