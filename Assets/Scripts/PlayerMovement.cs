@@ -9,16 +9,8 @@ public class PlayerMovement : MonoBehaviour {
 
 
     // Player Movement
-    void Update () {
-
-        if ((Input.GetKey("a") || Input.GetKey(KeyCode.LeftArrow)) && transform.position.x > -8.4f)
-        {
-            transform.position += new Vector3(-speed * Time.deltaTime, 0, 0);
-        }
-
-        if ((Input.GetKey("d") || Input.GetKey(KeyCode.RightArrow)) && transform.position.x < 8.4f)
-        {
-            transform.position += new Vector3(speed * Time.deltaTime, 0, 0);
-        }
+    void Update ()
+    { 
+        transform.position += new Vector3(speed * Input.GetAxis("Horizontal") * Time.deltaTime, 0, 0);
     }
 }
