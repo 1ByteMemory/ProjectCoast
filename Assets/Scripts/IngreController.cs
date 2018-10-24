@@ -31,14 +31,9 @@ public class IngreController : MonoBehaviour {
             anim.runtimeAnimatorController = animsList[Index];
             
             rb.mass = Random.Range(0.1f, 2.0f);
-
-
-
-
-
-
-            // allows it to move again.
-            rb.isKinematic = false;
+            
+        // allows it to move again.
+        rb.isKinematic = false;
         }
         
     }

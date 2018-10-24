@@ -1,23 +1,44 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class ScoreManager : MonoBehaviour {
 
-    private BoxCollider coll;
+    
     private SpriteRenderer sp;
+    private bool collected = false;
+    public Text TextScore;
+    public int IntScore;
 
 
 	// Use this for initialization
-	void Start () {
-        coll = GetComponent<BoxCollider>();
-        sp = GetComponentInParent<SpriteRenderer>();
+	void Start ()
+    {
+        sp = GetComponent<SpriteRenderer>();
 	}
 
-    private void OnTriggerEnter(Collider Player)
+    private void OnCollisionEnter(Collision Player)
     {
-        sp.enabled = !sp.enabled;
-        coll.enabled = !coll.enabled;
+        if ((Player.gameObject.tag == "Player") && !collected)
+        {
+            sp.sortingLayerName = "Behind";
+            collected = true;
+            IntScore += 100;
+            TextScore.text = IntScore.ToString();
+        }
+        
     }
-    
+
+
+
+    private void Update()
+    {
+        if (transform.position.y <= -9.0f)
+        {
+            collected = false;
+            sp.sortingLayerName = "Default";
+        }
+    }
 }
+

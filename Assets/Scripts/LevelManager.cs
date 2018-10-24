@@ -4,27 +4,23 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour {
 
-    private Rigidbody[] rb;
+    public int score;
+    
+    private float time = 2;
+    private int level = 5;
 
-	// At the start of the level this block will run.
-	void Start () {
-        rb = GetComponentsInChildren<Rigidbody>();
-        
-        // Calls wait Function
-        StartCoroutine("Wait");
-    }
-	
-    // Wait function.
-    IEnumerator Wait()
+    public Rigidbody itemPrefab;
+    public Transform spawn;
+
+    private void Start()
     {
-        // Cycles through all the ingriedients to cascade them.
-        for (int i = 0; i < rb.Length; i++)
-        {
-            // Enables Gravity for one ingreidient.
-            rb[i].useGravity = true;
-            yield return new WaitForSeconds(2);
-        }
+        score = GetComponent<ScoreManager>().IntScore;
 
-        
+    }
+
+
+    private void Update()
+    {
+
     }
 }
